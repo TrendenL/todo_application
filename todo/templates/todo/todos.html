@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Todos</h1>
+
+<a href="{% url 'todos:todo_create' %}">New Todo</a>
+
+{% for todo in todos %}
+<div class="todos">
+    {% if todo.completed %}
+        <a href="/todos/{{ todo.id }}/"><i><s>{{ todo.title }}</s></i></a>
+        <a href="/todos/{{ todo.id }}/">View more</a>
+    {% else %}
+        <a href="/todos/{{ todo.id }}/">{{ todo.title }}</a>
+    {% endif %}
+</div>
+{% endfor %}
+
+{% endblock content %}

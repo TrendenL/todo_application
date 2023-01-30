@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Todos</h1>
+
+<a href="{% url 'todos:todo_create' %}">New Todo</a>
+
+{% for todo in active_todos %}
+<ul>
+    <li>
+        {{ todo.title }}
+        <a href="/todos/{{ todo.id }}/">View more</a>
+    </li>
+</ul>
+{% endfor %}
+
+{% endblock content %}
